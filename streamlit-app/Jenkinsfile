@@ -2,11 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Show Workspace') {
+
+        stage('Install Dependencies') {
             steps {
-                bat 'cd'
-                bat 'dir'
-                bat 'dir streamlit-app'
+                dir('streamlit-app') {
+                    bat 'python -m pip install -r requirements.txt'
+                }
+            }
+        }
+
+        stage('Run Streamlit') {
+            steps {
+                dir('streamlit-app') {
+                    bat 'start "" streamlit run app.py --server.headless true'
+                }
             }
         }
     }
