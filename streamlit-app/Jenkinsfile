@@ -2,23 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Check Tools') {
+        stage('Show Workspace') {
             steps {
-                bat 'python --version'
-                bat 'git --version'
-                bat 'streamlit --version'
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                bat 'python -m pip install -r requirements.txt'
-            }
-        }
-
-        stage('Run Streamlit') {
-            steps {
-                bat 'start /B streamlit run app.py'
+                bat 'cd'
+                bat 'dir'
+                bat 'dir streamlit-app'
             }
         }
     }
