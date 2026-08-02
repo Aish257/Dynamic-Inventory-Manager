@@ -11,9 +11,11 @@ pipeline {
             }
         }
 
-        stage('Deploy to EC2') {
+        stage('Run Streamlit') {
             steps {
-                bat 'ssh -i C:/ProgramData/Jenkins/Aishwarya@2005.pem -o StrictHostKeyChecking=no ubuntu@13.203.226.182 "cd /home/ubuntu/Dynamic-Inventory-Manager && git pull origin main"'
+                dir('streamlit-app') {
+                    bat 'start "" streamlit run app.py --server.headless true'
+                }
             }
         }
     }
