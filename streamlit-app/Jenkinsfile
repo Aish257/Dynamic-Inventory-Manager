@@ -13,7 +13,7 @@ pipeline {
 
         stage('Deploy to EC2') {
             steps {
-                bat 'ssh -i C:/Users/dell/Downloads/Aishwarya@2005.pem -o StrictHostKeyChecking=no ubuntu@13.203.226.182 "cd /home/ubuntu/Dynamic-Inventory-Manager && git pull origin main"'
+                bat 'ssh -i C:/ProgramData/Jenkins/Aishwarya@2005.pem -o StrictHostKeyChecking=no ubuntu@13.203.226.182 "cd /home/ubuntu/Dynamic-Inventory-Manager && git pull origin main"'
             }
         }
     }
