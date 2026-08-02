@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        EC2_HOST = '13.203.226.182'
+    }
+
     stages {
 
         stage('Install Dependencies') {
@@ -11,10 +15,18 @@ pipeline {
             }
         }
 
-        stage('Run Streamlit') {
+        stage('Deploy to EC2') {
             steps {
-                dir('streamlit-app') {
-                    bat 'start "" streamlit run app.py --server.headless true'
+                sshagent(credentials: ['aws-ec2-key']) {
+                    bat '''
+                    ssh -o StrictHostKeyChecking=no ubuntu@%EC2_HOST% ^
+                    "cd /home/ubuntu/Dynamic-Inventory-Manager && \
+                    git pull origin main && \
+                    pkill -f streamlit || true && \
+                    cd streamlit-app && \
+                    source venv/bin/activate && \
+                    nohup streamlit run app.py --server.address 0.0.0.0 --server.port 8501 > streamlit.log 2>&1 &"
+                    '''
                 }
             }
         }
