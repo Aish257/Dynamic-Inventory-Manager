@@ -5,30 +5,12 @@ pipeline {
         EC2_HOST = '13.203.226.182'
     }
 
-    stages {
-
-        stage('Install Dependencies') {
-            steps {
-                dir('streamlit-app') {
-                    bat 'python -m pip install -r requirements.txt'
-                }
-            }
-        }
-
-        stage('Deploy to EC2') {
-            steps {
-                sshagent(credentials: ['aws-ec2-key']) {
-                    bat '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@%EC2_HOST% ^
-                    "cd /home/ubuntu/Dynamic-Inventory-Manager && \
-                    git pull origin main && \
-                    pkill -f streamlit || true && \
-                    cd streamlit-app && \
-                    source venv/bin/activate && \
-                    nohup streamlit run app.py --server.address 0.0.0.0 --server.port 8501 > streamlit.log 2>&1 &"
-                    '''
-                }
-            }
-        }
+stage('Deploy to EC2') {
+    steps {
+        bat """
+        ssh -i C:/Users/dell/Downloads/Aishwarya@2005.pem -o StrictHostKeyChecking=no ubuntu@13.203.226.182 "cd /home/ubuntu/Dynamic-Inventory-Manager && git pull origin main && pkill -f streamlit || true && cd streamlit-app && source venv/bin/activate && nohup streamlit run app.py --server.address 0.0.0.0 --server.port 8501 > streamlit.log 2>&1 &"
+        """
+    }
+}
     }
 }
