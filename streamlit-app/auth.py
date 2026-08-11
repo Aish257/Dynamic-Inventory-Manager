@@ -80,7 +80,7 @@ def show_landing():
 
     with tab_register:
         st.subheader("Create Customer Account")
-        with st.form("register_form")
+        with st.form("register_form"):
             r_name    = st.text_input("Full Name")
             r_email   = st.text_input("Email")
             r_password = st.text_input("Password", type="password")
