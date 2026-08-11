@@ -119,24 +119,35 @@ The system provides dedicated portals for **Customers, Salesmen, and Administrat
 
 The application uses a **role-based system** where users are directed to the appropriate portal after authentication.
 
-```text
-                         Dynamic Inventory Manager
-                                   │
-                              Login / Register
-                                   │
-                  ┌────────────────┼────────────────┐
-                  ↓                ↓                ↓
-              Customer           Admin           Salesman
-                  │                │                │
-                  ↓                ↓                ↓
-           Browse Products    Manage Inventory   Manage Orders
-           Place Orders       Manage Users       Process Orders
-           Track Orders       Manage Orders      Update Status
-           Wishlist           View Analytics     Sales Statistics
-                  │                │                │
-                  └────────────────┼────────────────┘
-                                   ↓
-                            SQLite Database
+```mermaid
+flowchart TB
+    A[Dynamic Inventory Manager]
+    B[Login / Register]
+
+    A --> B
+
+    B --> C[Customer]
+    B --> D[Admin]
+    B --> E[Salesman]
+
+    C --> C1[Browse Products]
+    C --> C2[Place Orders]
+    C --> C3[Track Orders]
+    C --> C4[Wishlist]
+
+    D --> D1[Manage Inventory]
+    D --> D2[Manage Users]
+    D --> D3[Manage Orders]
+    D --> D4[View Analytics]
+
+    E --> E1[Manage Orders]
+    E --> E2[Process Orders]
+    E --> E3[Update Status]
+    E --> E4[Sales Statistics]
+
+    C4 --> F[(SQLite Database)]
+    D4 --> F
+    E4 --> F
 ```
 
 ### 🔄 Order Workflow
@@ -166,8 +177,8 @@ flowchart LR
     A[GitHub] --> B[Jenkins]
     B --> C[Build & Test]
     C --> D[Deployment]
-    D --> E[AWS]
-    D --> F[Streamlit Cloud]
+    D --- E[AWS]
+    D --- F[Streamlit Cloud]
 ```
 
 ---
