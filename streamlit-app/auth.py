@@ -75,7 +75,9 @@ def show_landing():
                 else:
                     st.error("Invalid credentials. Please try again.")
 
-        st.caption("Null")
+        st.caption("admin@gmail.com/admin123")
+        st.caption("salesman@gmail.com/sales123")
+        st.caption("alice@gmail.com/alice123")
         
 
     with tab_register:

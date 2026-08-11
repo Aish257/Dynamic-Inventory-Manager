@@ -17,7 +17,7 @@ The system provides dedicated portals for **Customers, Salesmen, and Administrat
       <br><b>Login</b>
     </td>
     <td align="center">
-      <img src="screenshots/customer_dashboard.png" width="400">
+      <img src="screenshots/coustomer_dashboard.png" width="400">
       <br><b>Customer Dashboard</b>
     </td>
   </tr>
