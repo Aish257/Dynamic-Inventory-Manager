@@ -150,22 +150,24 @@ flowchart TB
     E4 --> F
 ```
 
-### 🔄 Order Workflow
+## 🔄 Order Workflow
 
-```text
-Customer
-   ↓
-Select Product
-   ↓
-Place Order
-   ↓
-Order Stored in Database
-   ↓
-Salesman Processes Order
-   ↓
-Order Status Updated
-   ↓
-Customer Tracks Order
+```mermaid
+flowchart TB
+    A[Customer]
+    B[Select Product]
+    C[Place Order]
+    D[Order Stored in Database]
+    E[Salesman Processes Order]
+    F[Order Status Updated]
+    G[Customer Tracks Order]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
 ```
 
 ---
