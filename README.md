@@ -45,10 +45,36 @@ The system provides dedicated portals for **Customers, Salesmen, and Administrat
 
 ---
 
+## 🔄 CI/CD Pipeline
+
+<p align="center">
+  <img src="screenshots/jenkins.png" width="800">
+</p>
+
+<p align="center">
+  <i>Jenkins CI/CD Pipeline</i>
+</p>
+
+---
+
 ## 🌐 Live Demo
 
 🚀 **[View Live Application](https://dynamic-inventory-manager.streamlit.app/)**
 
+---
+
+##  Tech Stack
+
+| Technology       | Purpose                          |
+| ---------------- | -------------------------------- |
+|  **Python**    | Application logic and backend    |
+|  **Streamlit** | Web application interface        |
+|  **SQLite**   | Database management              |
+|  **Plotly**    | Interactive charts and analytics |
+|  **Git & GitHub**    | Version control |
+|  **Jenkins**    | CI/CD automation |
+|  **AWS**    | Cloud infrastructure/deployment |
+|  **Streamlit Community Cloud**    | Application deployment|
 ---
 
 
@@ -86,17 +112,6 @@ The system provides dedicated portals for **Customers, Salesmen, and Administrat
 * View and manage orders
 * Monitor sales performance
 * View interactive analytics
-
----
-
-##  Tech Stack
-
-| Technology       | Purpose                          |
-| ---------------- | -------------------------------- |
-|  **Python**    | Application logic and backend    |
-|  **Streamlit** | Web application interface        |
-|  **SQLite**   | Database management              |
-|  **Plotly**    | Interactive charts and analytics |
 
 ---
 
@@ -141,6 +156,20 @@ Order Status Updated
    ↓
 Customer Tracks Order
 ```
+
+---
+
+## CI/CD & Deployment workflow
+
+       GitHub
+          ↓
+       Jenkins
+          ↓
+   Build / Test / Automation
+          ↓
+     Deployment
+       ↙     ↘
+     AWS   Streamlit Cloud
 
 ---
 
