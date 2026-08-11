@@ -159,17 +159,16 @@ Customer Tracks Order
 
 ---
 
-## CI/CD & Deployment workflow
+## 🔄 CI/CD & Deployment Workflow
 
-       GitHub
-          ↓
-       Jenkins
-          ↓
-   Build / Test / Automation
-          ↓
-     Deployment
-       ↙     ↘
-     AWS   Streamlit Cloud
+```mermaid
+flowchart LR
+    A[GitHub] --> B[Jenkins]
+    B --> C[Build & Test]
+    C --> D[Deployment]
+    D --> E[AWS]
+    D --> F[Streamlit Cloud]
+```
 
 ---
 
